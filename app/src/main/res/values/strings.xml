@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">taskFullLayout</string>
+    <string name="tiempo">Cloudy 72º</string>
+    <string name="textoPrincipal1">Good morning!</string>
+    <string name="textoPrincipal2">Light traffic ahead.</string>
+    <string name="textoBotonNavegar">Navigate</string>
+    <string name="textoBotonCall">Make a Call</string>
+    <string name="textoBotonPlay">Play</string>
+    <string name="textoPerfilFlotante">Just for you</string>
+    <string name="noti1texto1">12 min</string>
+    <string name="noti1texto3">via US 101 South</string>
+    <string name="noti2texto1">Thomas Williams</string>
+    <string name="noti2texto2">Missed call</string>
+    <string name="noti3texto1">Little Manila</string>
+    <string name="noti3texto2">Long Distance</string>
 </resources>
