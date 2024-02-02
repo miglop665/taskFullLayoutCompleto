@@ -18,6 +18,7 @@ import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
+    //Declaramos todas las variables empleadas
     private lateinit var tiempo: Button
     private lateinit var perfil: ImageButton
     private lateinit var listamusica: CardView
@@ -36,7 +37,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var botonGoogle: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //asignamos el MainActivity.kt al activity_main.xml correspondiente
         setContentView(R.layout.activity_main)
+
+        //guardamos las referencias a los objetos del activity_main.xml en las variables previamente declaradas
         tiempo=findViewById(R.id.botonTiempo)
         perfil=findViewById(R.id.botonImagen)
         listamusica=findViewById(R.id.CVbotonPlay)
@@ -53,31 +57,39 @@ class MainActivity : AppCompatActivity() {
         botonNavigate=findViewById(R.id.CVbotonNavigate)
 
 
+        //Al pulsar el icono del tiempo nos manda a la 2 actividad
         tiempo.setOnClickListener {
             val intent = Intent(this@MainActivity,MainActivity2::class.java)
             startActivity(intent)
         }
 
+        //Al pulsar el icono del perfil nos manda a la 3 actividad
         perfil.setOnClickListener {
             val intent = Intent(this@MainActivity,MainActivity3::class.java)
             startActivity(intent)
         }
 
+        //Al pulsar el icono del telefono nos manda a la 4 actividad
         llamar.setOnClickListener {
             val intent = Intent(this@MainActivity,MainActivity4::class.java)
             startActivity(intent)
         }
 
+        //Declaramos una variable con un array con las referencias a todos los recursos de audio de la carpeta raw
         var arrayCanciones = arrayOf(R.raw.barbie_girl,R.raw.call_me_maybe,R.raw.avicii_wake_me_up)
         mp= MediaPlayer.create(this, arrayCanciones.random())
         listamusica.setOnClickListener {
+            //si esta sonando ya se para
             if(mp.isPlaying){
                 mp.stop()
             }else{
+                //si esta parada o no esta sonando saca otro al azar del array y empieza a sonar
                 var cancion = arrayCanciones.random()
                 mp= MediaPlayer.create(this, cancion)
                 mp.start()
+                //guarda el nombre del recurso en el textview1
                 txv1.text= resources.getResourceEntryName(cancion)
+                //guarda el texto de la duracion en milisegundos (convertida a minutos al dividir entre 60000) del recurso en el textview2
                 txv2.text=(mp.duration/60000).toString()+" mins"
             }
         }
@@ -149,12 +161,12 @@ class MainActivity : AppCompatActivity() {
                 if (spokenText.contains("tiempo")) {
                     val intent = Intent(this, MainActivity2::class.java)
                     startActivity(intent)
-                } else  if (spokenText.contains("musica")) {
-                    val intent = Intent(this, listamusica::class.java)
+                } else  if (spokenText.contains("perfil")) {
+                    val intent = Intent(this, MainActivity3::class.java)
                     startActivity(intent)
                 } else
-                    if (spokenText.contains("musica")) {
-                        val intent = Intent(this, listamusica::class.java)
+                    if (spokenText.contains("telefono")) {
+                        val intent = Intent(this, MainActivity4::class.java)
                         startActivity(intent) }
                     else {
                         Toast.makeText(applicationContext, "Acción no reconocida", Toast.LENGTH_SHORT).show()
