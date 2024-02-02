@@ -15,9 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var listamusica: CardView
     private lateinit var llamar: CardView
     private lateinit var mp: MediaPlayer
-    private lateinit var mp1: MediaPlayer
-    private lateinit var mp2: MediaPlayer
-    private lateinit var mp3: MediaPlayer
     private lateinit var txv1: TextView
     private lateinit var txv2: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
