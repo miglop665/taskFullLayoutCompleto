@@ -165,7 +165,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity3::class.java)
                     startActivity(intent)
                 } else
-                    if (spokenText.contains("telefono")) {
+                    if (spokenText.contains("teléfono")) {
                         val intent = Intent(this, MainActivity4::class.java)
                         startActivity(intent) }
                     else {
