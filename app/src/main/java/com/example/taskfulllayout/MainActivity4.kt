@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity4 : AppCompatActivity() {
+    //Declaramos todas las variables empleadas
     private lateinit var volver: ImageButton
     private lateinit var llamar: ImageButton
     private lateinit var numero: TextView
@@ -27,8 +28,10 @@ class MainActivity4 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //asignamos el MainActivity4.kt al activity_main4.xml correspondiente
         setContentView(R.layout.activity_main4)
 
+        //guardamos las referencias a los objetos del activity_main.xml en las variables previamente declaradas
         volver=findViewById(R.id.botonVolver)
         llamar=findViewById(R.id.botonLlamar)
         numero=findViewById(R.id.txvNumero)
@@ -45,6 +48,7 @@ class MainActivity4 : AppCompatActivity() {
 
 
 
+         //Al pulsar cada boton de los siguientes escrine un numero en el TextView o levanta un toast
 
         boton0.setOnClickListener {
             if(numero.text.toString().length<9) {
@@ -119,12 +123,13 @@ class MainActivity4 : AppCompatActivity() {
         }
 
 
-
+        //Al pulsar el icono del tiempo nos manda al MainActivity
         volver.setOnClickListener {
             val intent = Intent(this@MainActivity4,MainActivity::class.java)
             startActivity(intent)
         }
 
+        //Al pulsar el icono de llamar nos levanta otro toast
         llamar.setOnClickListener {
             Toast.makeText(this,"No dispone de ninguna red movil ahora mismo",Toast.LENGTH_LONG).show()
         }
